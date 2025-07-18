@@ -4,22 +4,27 @@ My Random Coding Blog
 ## Code
 
 ### Web
-* [API Best Practices](APIs.md)
-* [Bootstrap](bootstrap.md)
-* [Node and NPM](node.md)
-* [React](react.md)
-* [PrimeReact](primereact.md)
-* [HTML](html.md)
+* [API Best Practices](web-applications/APIs.md)
+* [Bootstrap](web-applications/bootstrap.md)
+* [Node and NPM](web-applications/node.md)
+* [React](web-applications/react.md)
+* [PrimeReact](web-applications/primereact.md)
+* [HTML](web-applications/html.md)
 
 ### Database
-* [Oracle ODP.NET & .NET Core](OracleNETCore.md)
-* [Transaction SQL Tips](SQLServerSQL.md)
+* [Oracle ODP.NET & .NET Core](database/OracleNETCore.md)
+* [Oracle SQL](database/OracleSQL.md)
+* [Transaction SQL Tips](database/SQLServerSQL.md)
 
 ### Cloud
-* [Azure Concepts, Tips & Hints](Azure/Azure.md)
+* [Azure Concepts, Tips & Hints](azure/Azure.md)
+* [Azure App Servic](azure/AzureAppService.md)
+* [Azure Dev Ops](azure/AzureDevOps.md)
+* [Azure Functions](azure/AzureFunctions.md)
+* [Azure Tokens](azure/AzureToken.md)
 * [Azure Security SC-900 Exam](sc900.md)
   * [Cloud Security](Security.md)
-* [Azure Logs](AzureLogs.md)
+* [Azure Logs](azure/AzureLogs.md)
 
 ### Scripting
 * [Powershell](PowershellTips.md)
