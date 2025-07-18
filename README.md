@@ -1,7 +1,8 @@
 # ripcurrent.github.ie
 My Random Coding Blog
 
-## Code
+## Certification Training
+* [DP-300 Azure Database Admin](certification-training/dp-300.md)
 
 ### Web
 * [API Best Practices](web-applications/APIs.md)
