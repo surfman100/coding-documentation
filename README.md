@@ -16,7 +16,7 @@ My Random Coding Blog
 * [Transaction SQL Tips](SQLServerSQL.md)
 
 ### Cloud
-* [Azure Concepts, Tips & Hints](Azure.md)
+* [Azure Concepts, Tips & Hints](Azure/Azure.md)
 * [Azure Security SC-900 Exam](sc900.md)
   * [Cloud Security](Security.md)
 * [Azure Logs](AzureLogs.md)

@@ -12,7 +12,7 @@ General concepts, hints and tips.
 
 ## Applications
 
-<a name="appregistrations" />
+<a name="appregistrations"></a>
 
 ### App Registrations
 - Use App Registration to register *your* application for use with Entra i.e. Identity
@@ -23,7 +23,7 @@ General concepts, hints and tips.
   - The app can request scope permissions e.g. "User.Read" to read the user profile
   - Share a secret with Identifity platform which *proves the apps identity*. (used as our app is confidential). Uses this secret when requesting tokens.
 
-<a name="ServicePrincipals" />
+<a name="ServicePrincipals"></a>
 
 ### Service Principals
 - Local representation of global application in a specific tenant
@@ -31,14 +31,14 @@ General concepts, hints and tips.
 - They're a unique type of user identity with an application ID and password or certificate.
 - A service principal has only those permissions necessary to perform tasks defined by the roles and permissions for which it is assigned. (defines what an application can do in a tenant)
 
-<a name="EnterpriseApplications" />
+<a name="EnterpriseApplications"></a>
 
 ### Enterprise Applications
 - Use these to register an instance of this application. Other organisations could have an Enterprise Application for your App Registration.
 - You'll see many Enterprise applications listed as this will contain those which are used by your organisation but built but others (e.g. Adobe etc)
 - The enterprise application resource controls what the app can do in our tenant
 
-<a name="WebApp" />
+<a name="WebApp"></a>
 
 ### Managed Identity
 - Special type of Service Principal that eliminates the need to manage credentials
@@ -57,7 +57,7 @@ General concepts, hints and tips.
   - there is an automatic build under Deployment area [Oryx](https://github.com/microsoft/Oryx/tree/main)
   - setup your deployment/git options if need be 
 
-<a name="AppConfiguration" />
+<a name="AppConfiguration"></a>
 
 ### App Configuration
 the simplest app configuration is just to use the "Configuration" tab in a Wep App blade.
@@ -85,7 +85,7 @@ builder.Configuration.AddAzureAppConfiguration(connectionString);
 // Bind configuration "TestApp:Settings" section to the Settings object
 ```
 
-<a name="KeyVaultandAppConfiguration" />
+<a name="KeyVaultandAppConfiguration"></a>
 
 ### Key Vault and App Configuration
 #### code
@@ -115,7 +115,7 @@ On the Key Vault IAM, Add the Service Principal as a * *Key Vault Secrets User* 
 #### server side
 For this to work, you need to enable the managed identity on the App Service and grant this managed identity the same * *Key Vault Secrets User* * role
 
-<a name="Secrets Manager" />
+<a name="Secrets Manager"></a>
 
 ### Secrets Manager
 - use the secrets manager to save secrets in development environment to local json file
