@@ -12,6 +12,10 @@ My Random Coding Blog
 * [PrimeReact](web-applications/primereact.md)
 * [HTML](web-applications/html.md)
 
+### Coding C#
+* [aspnet](c-sharp/aspnet.md)
+* [entity framework](c-sharp/entity-framework.md)
+
 ### Database
 * [Oracle ODP.NET & .NET Core](database/OracleNETCore.md)
 * [Oracle SQL](database/OracleSQL.md)
