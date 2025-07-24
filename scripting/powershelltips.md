@@ -30,8 +30,8 @@ foreach ($id in Get-CGIPUserPoolList -Select 'UserPools.Id')
 ```
 ## Help
 - use *help* as a shortcut for Get-Help  
+- install latest update-help
 - pipe to *Get-Member* to end of command to get the output members
-
 
 ## Startup location
 create file profile.ps1 in **Documents\WindowsPowershell**. \
@@ -50,7 +50,6 @@ Set-DefaultAWSRegion us-east-1
 
 ## Azure scripting
 Install-Module -name Az  
-
 
 ## IIS recipes
 Excellent backgrounder here:  
