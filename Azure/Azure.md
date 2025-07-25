@@ -10,6 +10,9 @@ General concepts, hints and tips.
 6. [Key Vault and App Configuration](#KeyVaultandAppConfiguration)
 7. [Secrets Manager](#SecretsManager)
 
+## General
+Follow [reource naming conventions](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-abbreviations)
+
 ## Applications
 
 <a name="appregistrations"></a>
