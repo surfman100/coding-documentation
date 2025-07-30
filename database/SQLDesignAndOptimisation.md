@@ -59,3 +59,23 @@ Typically poor transactional design
 ## ToDo
 - Understand wait types
 - Isolation types
+
+
+## Performance
+First step is to collect data measurements that form a baseline. 
+Automatic Tuning uses FORCE PLAN and monitors 
+Normalise OLTP but Denormalise OLAP 
+First, Second, Third forms
+
+For OLAP
+- Facts: for measurements e.g. sales
+- Dimensions: smaller row counts but lot of columns e.g. investory, time, geography
+- Star Schema: Facts join the dims
+- Snowflake: more normalisation, so less space but more joins
+
+Indexes:
+- Keep **clustered** as narrow as possible ie unique. Also good to have this as the typical sort by direction. 
+- Note this is logical order (physical changes over time with deletions etc)
+- **Non-clustered** suited to multi column indexes. Can also be unqiue
+- Think workloads, optimise around typical queries
+
