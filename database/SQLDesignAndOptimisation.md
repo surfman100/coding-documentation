@@ -138,3 +138,34 @@ Dashboards that can be used to monitor a range of servers/databases
 ## Workload Groups
 Container for session requests
 Usefull to limit how much resources a workload can use
+Used with Resource Govenor on SQL Instances 
+
+# Statistics
+stored as blobs, information on distribution of data in one or more columns 
+Worth upgrading compatibility_level to get the latest features (eg intelligence/tuning)
+```
+ALTER DATABASE [mydbname] SET COMPATIBILITY_LEVEL = 150;
+```
+
+```
+--database settings
+SELECT 
+    name AS DatabaseName,
+    compatibility_level,
+    recovery_model_desc,
+    containment_desc,
+    is_auto_close_on,
+    is_auto_shrink_on,
+    is_auto_create_stats_on,
+    is_auto_update_stats_on
+FROM sys.databases
+WHERE name = DB_NAME();
+
+--server settings
+SELECT name, value, value_in_use, description
+FROM sys.configurations
+ORDER BY name;
+
+```
+
+
