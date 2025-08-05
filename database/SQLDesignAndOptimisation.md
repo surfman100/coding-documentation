@@ -60,7 +60,6 @@ Typically poor transactional design
 - Understand wait types
 - Isolation types
 
-
 ## Performance
 First step is to collect data measurements that form a baseline. 
 Automatic Tuning uses FORCE PLAN and monitors 
@@ -78,4 +77,64 @@ Indexes:
 - Note this is logical order (physical changes over time with deletions etc)
 - **Non-clustered** suited to multi column indexes. Can also be unqiue
 - Think workloads, optimise around typical queries
+- Properly indexed DB results in less IOs (ie disk reads)
+- GOAL: most benefit from fewest number of indexes
+- check with dvms index usage, carefull delete non-used (might be used diff time of year), test on non-prod?, drop/recreate indexes as period occurs
+- maintenance operations should take place at non busy times
+- avoid query hints (options)
+  - maxdop
+  - recompile (temp plan each run)
+  - Fast: return top few records and continue 
 
+Before change:
+- Issues cause by: concurrent user activity, system resources utilisation & overall workload
+- understand broader effects of change & monitor
+- optimising queries v maintaining system stability
+
+## Waits
+- Resource: locks, latches, disk I/O
+- Queue: worker thread is idle
+- External: eg linked server, network
+
+ sys.dm_os_wait_stats v sys.dm_db_wait_stats (Azure)
+
+ Query Store Hints
+ - use query store hints to add options to queries.
+ - useful where you can't modify the query
+
+ Log Governance
+ - be aware that Azure SQL enforce resource limits so as to meet SQL. 
+
+## Columnstore
+Unlike traditional rowstore, data is physicall stored as column-wise data format. 
+Both logically stored as table with rows & columns 
+Columnstore slices table into *rowgroups* with high compression 
+Each column in rowgroup is stored in *column segment* 
+*Clusterd Columnstore index* is the physical storage. Might use additional deltastore/b-tree in the background. 
+*Non clustered columnstore index* is additional index. For real-time operational analytics 
+Recommended for DataWarehousing, queries that run large aggregation workloads
+
+
+## Plan operators
+[documentation](https://learn.microsoft.com/en-us/sql/relational-databases/showplan-logical-and-physical-operators-reference?view=sql-server-ver17)
+
+| operator | description | usage |
+| --- | --- | --- |
+| Key lookup | lookup on a table with clustered index | indicates the query might benefit from performance tuning by adding covering index |
+| Nested Loops | used in joins. search on inner table for each row on outer. | |
+| Table scan | retrieves all row on a table | |
+
+## Extended Events
+Built on SQL Profiler 
+Monitor I/O, DDL operations, deadlocks 
+Create a session to capture selected events 
+Can filter by some criteria to only caputure instances you are interested in. 
+Store to: File, In Memory ring, event counter, 
+
+## Database Watcher
+New preview product.
+Dashboards that can be used to monitor a range of servers/databases 
+
+## Workload Groups
+Container for session requests
+Usefull to limit how much resources a workload can use
