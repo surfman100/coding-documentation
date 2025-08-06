@@ -5,7 +5,7 @@
 - schema. Each user has a default schema (default is predefined dbo)
 
 **logins** are used to access the database (irrelevant of authentication method)
-setup at server instance level and stored in *master* database
+setup at server instance level and stored in *master* database. can be disabled.
 **users** are setup in the specific *database* level and have access to that database only. 
 are either SQL Auth or Windows/Entra Auth 
 **roles** predefined by microsoft and allows creation of custom ones, database or server level.  
@@ -40,10 +40,15 @@ procs and functions: alter, control, execute, view change tracking, view definit
 
 use Execute As to switch user being used (not Azure SQL)
 
+create entra users at the database level directly
+```
+create user [bti@nac.dk] from external provider
+```
+
 ## Network Filtering
 Two Types: 
 - Server Firewall rules: control via portal
-- Database Firewall rules: control via TSQL only
+- Database Firewall rules: control via TSQL only *sp_set_database_firewall_rule*
 
 Database checks for database level rules first, if none checks Server level
 
@@ -57,3 +62,50 @@ SQL Auditing Logs -> Sentinel Log Analytics Workspace
 ## Dynamic Data Masking
 Inbuilt masking functions. 
 Only users with UNMASK permission can see the value. 
+```
+alter table [mytable] alter column [mycol] add masked with (function = 'partial(0,"XXXX-XXXX-XXXX-",4)')
+```
+
+## Transparent Data Encryption (TDE)
+Encrypts at page level, decrypted on read to memory. 
+prevents backup restore to another computer
+- create master key encryption, certificate, database encryption key, alter database 
+
+## Always Encrypted
+based on master encryption key and column encryption key (each col encrypted using different key)
+use SSMS. Random (use on low variance data) or deterministic
+Client apps:
+- need access to key store
+- Always encrypted driver. 
+- encrypts data in writes.
+- in connection string use "Column Encryption Setting=enabled"
+Secure Enclaves build on this.
+
+## Transport Layer Security (TLS)
+Protocol layer.
+Use SQL Server Configuration Manager for certificates and configure server to use TLS
+
+## Sensitivity Classifications
+Add classifications for columns
+- information type
+- sensitivity label
+
+## Row Level security (RLS)
+no encryption. user can't perform actions based on group membership
+- filter predicates: select/update/delete rows (like a where clause)
+- block predicates: after s/i/u/d -> prevents action
+you see your own rows
+
+1. create filter predicate table function (use seperate schema)
+2. grant select on function to users
+3. create security policy that joins function to table
+
+## Ledger
+tamper evidence
+each transaction is hashed and all transactions linked 
+- append only ledger tables: block all updates/deletes at API level 
+enabled on db creation only
+
+## Purview
+Add data connections, initiate scans for configured rule types.
+scans to be triggered on a schedule
