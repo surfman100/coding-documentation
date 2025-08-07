@@ -20,3 +20,16 @@ func azure functionapp publish func-customerstatement-prod --dotnet-version 8.0 
 ```
 az functionapp config appsettings set --name func-customerstatement-prod -g rg-reporting-prod --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
 ```
+
+## service bus
+limit the concurrent message processing using
+```
+    "extensions": {
+    "serviceBus": {
+      "messageHandlerOptions": {
+        "autoComplete": true,
+        "maxAutoRenewDuration": "00:05:00",
+        "maxConcurrentCalls": 2
+      }
+    }
+```
