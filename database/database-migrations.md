@@ -10,7 +10,10 @@ Both of the above tools look like Azure Data Factory pipeline monitoring section
 
 Speed depends on SKU (P15?). ADF initialisation time can be slow.
 
-Azure Migrate creates only VMs/Nics/Disks. Other Associated resources should be created.
+**Azure Data Migrtion Service (DMS)**
+is the one for Databases 
+
+**Azure Migrate** creates only VMs/Nics/Disks. Other Associated resources should be created.
 Rights
 - Local: Remote management users, hyper-v administrators, performance monitor users
 - Azure: Virtual Machine Contributor, Owner/Contributor for app registrations
@@ -25,8 +28,6 @@ Process:
 - Snapshort delete 
 - Changes are stored in log files.
 - Delta replication begins 
-
-
 
 ## Migrate at Scale 
 Use powershell or CLI

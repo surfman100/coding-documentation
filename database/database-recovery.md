@@ -72,9 +72,10 @@ Already has 99.99 availability built in. eg Advanced Database Recovery
 Applications should have retry logic as transient issues can occur. 
 Capabilities like OFFLINE, EMERGENCY state not available/needed.  
 
-Active **geo-replication**.
+**active geo-replication**.
 all databases must be same service tier
 Cross subscription  geo-replica via programmatically
+up to 4 readable replicas in different regions
 
 **auto failover**
 auto failover or customer initiated
@@ -97,3 +98,5 @@ auto failover or customer initiated
 | Instance, Server, DB | use cli/powershell to ping dbs
 | backups | view expected creation of new backups in Azure activity log |
 | replica status | view using DMV sys.dm_database_replica_status |
+
+Note difference between umbrella **azure monitor** and the visual **azure metrics**
