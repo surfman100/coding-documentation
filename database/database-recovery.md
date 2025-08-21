@@ -38,10 +38,18 @@ Bit old skool -> handle network card/disk failures, these issue rarely happen in
 Failover Cluster Manager is available under server tools
 
 **Availability Groups**
+SQL Server provides AGs by using WSFC services and capabilities
 DB level protection. 1 w/r & 1 r replica. (Enterprise edition 8 replicas)
 Quicker failover times and no shared storage (simplar to implement), increased storage costs
 Additional setup for instance level logins, agents etc
 Enabled on the SQL server properties page. Use this of TSQL/Powershell.
+
+| Type | Description | Specifics | 
+| --- | --- | --- |
+| Basic | For Standard edition | Single replica, no read access, no backups off secondary |
+| Contained | Additional instance details | include relevant portions of master & msdb, create users etc at AG level | 
+| Distributed | Cross region | A AG that contains 2+ AG groups |
+
 
 
 **Log shipping**
@@ -95,8 +103,9 @@ auto failover or customer initiated
 | What | how |
 | --- | --- | 
 | Region | Azure status & Azure Health |
-| Instance, Server, DB | use cli/powershell to ping dbs
+| Instance, Server, DB | use cli/powershell to ping dbs. Use PerfMon or DMV's |
 | backups | view expected creation of new backups in Azure activity log |
 | replica status | view using DMV sys.dm_database_replica_status |
 
 Note difference between umbrella **azure monitor** and the visual **azure metrics**
+Azure monitor will not show you SQL Server performance details

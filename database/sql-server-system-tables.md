@@ -13,7 +13,7 @@
 | sys.dm_exec_query_plan() | capture actual plan for a query | | 
 | sys.dm_db_index_physical_stats | check index fragmentation | |
 | sys.dm_db_column_store_row_group_physical_stats | check index fragmentation | |
-
+| sys.dm_os_volume_stats | transaction log read/write latency | |
 
 ## Waits
 | wait / wait view | description | when to use |
