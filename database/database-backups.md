@@ -24,3 +24,14 @@ Delete Server -> all backups deleted
 Delete DB -> can be restored
 PIR default is 7days, can be extended to 35days
 No Managed backup -> SQL restore
+
+## Recovery Models
+
+| Type | Description | Pros | Cons |
+| --- | --- | --- | --- |
+| Simple | | reduced admin overhead | Lose all since last backup, no PITR |
+| Full | | minimize work-loss exposure | Requires log backups
+| Bulk Logged | like above + high perf bulk copy operations| minimize work-loss exposure | 
+
+## Maintenance Plans
+Is an Integration Services package run by SQL Server Agent job.

@@ -62,12 +62,14 @@ SQL Auditing Logs -> Sentinel Log Analytics Workspace
 ## Dynamic Data Masking
 Inbuilt masking functions. 
 Only users with UNMASK permission can see the value. 
+Does not alter the data, just the viewing of it
 ```
 alter table [mytable] alter column [mycol] add masked with (function = 'partial(0,"XXXX-XXXX-XXXX-",4)')
 ```
 
 ## Transparent Data Encryption (TDE)
-Encrypts at page level, decrypted on read to memory. 
+Encrypts at page level, decrypted on read to memory.
+hence DBA's might be able to see the decrypted data. 
 prevents backup restore to another computer
 - create master key encryption, certificate, database encryption key, alter database 
 

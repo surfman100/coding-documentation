@@ -20,12 +20,16 @@ My Random Coding Blog
 * [Oracle ODP.NET & .NET Core](database/OracleNETCore.md)
 * [Oracle SQL](database/OracleSQL.md)
 * [Transaction SQL Tips](database/SQLServerSQL.md)
+* [Backups](database/database-backups.md)
+* [Migrations](database/database-migrations.md)
+* [Security](database/database-security.md)
+* [Recovery](database/database-recovery.md)
 
 ### Cloud
 * [Azure Concepts, Tips & Hints](azure/Azure.md)
 * [Azure App Servic](azure/AzureAppService.md)
 * [Azure Dev Ops](azure/AzureDevOps.md)
-* [Azure Functions](azure/AzureFunctions.md)
+* [Azure Functions](azure/azure-functions.md)
 * [Azure Tokens](azure/AzureToken.md)
 * [Azure Security SC-900 Exam](sc900.md)
   * [Cloud Security](Security.md)
