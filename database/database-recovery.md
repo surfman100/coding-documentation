@@ -1,4 +1,8 @@
 # Disaster Recovery
+thinking of: 
+Availibility capabiltiies
+Backup and Restore strategy
+
 
 ## RTO & RPO
 **Recovery Time Objective** - max time to bring resources online
@@ -28,21 +32,27 @@ Concepts:
 New-Cluster -Name MyWSFC -Node Node1,Node2,NodeN -StaticAddress w.y.x.z
 ```
 
+*Always On* refers to FCI & AG
 
 **Failover Cluster Instances** configured on installation, can't convert later. 
 Is an instance of SQL Server installed on all nodes. Appears as a single instance. 
 On prem or in Azure. In Azure, internal load balancer is required.
 On failover, full stop/start required, app will need to reconnect once node up after recovery process.
 DB on shared storage, requires AD DS & DNS
-Bit old skool -> handle network card/disk failures, these issue rarely happen in cloud abstration
+Bit old skool -> handle network card/disk failures, these issue rarely happen in cloud abstraction
 Failover Cluster Manager is available under server tools
 
 **Availability Groups**
 SQL Server provides AGs by using WSFC services and capabilities
-DB level protection. 1 w/r & 1 r replica. (Enterprise edition 8 replicas)
-Quicker failover times and no shared storage (simplar to implement), increased storage costs
+DB level protection. 
+- standard: 1 db, 1 w/r & 1 r replica. 
+- Enterprise: multipele dbs, 1 w/r & 8 r replicas.
+Quicker failover times and no shared storage (simpler to implement), increased storage costs
 Additional setup for instance level logins, agents etc
 Enabled on the SQL server properties page. Use this of TSQL/Powershell.
+v2022 on, can include instance level objects, properties
+Active Secondary replicas: backup off the replica, read only access to replicas, 
+
 
 | Type | Description | Specifics | 
 | --- | --- | --- |
@@ -50,7 +60,16 @@ Enabled on the SQL server properties page. Use this of TSQL/Powershell.
 | Contained | Additional instance details | include relevant portions of master & msdb, create users etc at AG level | 
 | Distributed | Cross region | A AG that contains 2+ AG groups |
 
+| Availability Mode | Description | Pros | Cons | Failover |
+| --- | --- | --- | --- |
+| asynchronous-commit | primary commits transaction without waiting for secondary ack. | low latency | possible data loss | only forced |
+| synchronous-commit | wait for secondary ack. | some latency | no data loss | planned or automatic |
+| configuration only | ag's not ont WSFC | 
 
+Sync process: incoming log records (hardens the log), replies ack, status = SYNCHRONIZED
+
+**distributed availability groups**
+useful as an easy means of migrating server to new version
 
 **Log shipping**
 DB level protection. No automatic failover, switching server names required.
@@ -84,9 +103,11 @@ Capabilities like OFFLINE, EMERGENCY state not available/needed.
 all databases must be same service tier
 Cross subscription  geo-replica via programmatically
 up to 4 readable replicas in different regions
+RPO - a few seconds
 
 **auto failover**
-auto failover or customer initiated
+auto failover or customer initiated. 
+abstraction on top of geo-replication! 
 
 | Features | Geo-Replication | Failover Groups |
 | --- | --- | --- |

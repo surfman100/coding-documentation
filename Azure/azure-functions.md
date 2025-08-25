@@ -21,6 +21,11 @@ func azure functionapp publish func-customerstatement-prod --dotnet-version 8.0 
 az functionapp config appsettings set --name func-customerstatement-prod -g rg-reporting-prod --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
 ```
 
+## build / compatability issues
+try:
+- updateing function tools to the latest version (use choco)
+- be mindful of extension bundles
+
 ## service bus
 limit the concurrent message processing using
 ```
