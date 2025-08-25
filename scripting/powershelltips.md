@@ -54,3 +54,11 @@ Install-Module -name Az
 ## IIS recipes
 Excellent backgrounder here:  
 https://octopus.com/blog/iis-powershell
+
+
+## General
+
+```
+$variable = variable
+Write-host $variable
+```

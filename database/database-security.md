@@ -109,3 +109,31 @@ enabled on db creation only
 ## Purview
 Add data connections, initiate scans for configured rule types.
 scans to be triggered on a schedule
+
+## Encryption
+SQL Server key types:
+- symmetric: same password to encrypt/descrypt -> created on server server creation
+- asymmetric: public/private key -> created by OS
+
+Used:
+- service master key: autogen. encrypts the DMK's. Used by Windows/Service.
+- database master key: symmetric. protects the DB's certs & asym keys.
+
+Certificate binds the Key to identity of service/device/person
+
+Encrypt a Column:
+- Create DB Master Key
+- Create Certificate
+- Create Symmetric Key with Certificate
+- Open Symmetric Key
+- Update data using function *EncryptByKey*
+Test using 
+- Open Symmetric Key
+- select data using function *DecryptByKey*
+
+Always On Encryption:
+- encryption keys are never exposed to the Database Engine
+- Uses Column Encryption keys and Column master keys
+- Column master key stored in Azure Key Vault
+- Determinisitc: same data in -> same encrypted value. allows additional operations
+- Randomized: more secure
