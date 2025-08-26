@@ -169,3 +169,8 @@ ORDER BY name;
 ```
 
 
+## DBCC Commands
+DBCC CHECKDB
+
+alter database
+- 

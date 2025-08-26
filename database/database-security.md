@@ -10,7 +10,8 @@ setup at server instance level and stored in *master* database. can be disabled.
 are either SQL Auth or Windows/Entra Auth 
 **roles** predefined by microsoft and allows creation of custom ones, database or server level.  
 **server roles** not available in Azure SQL
-create the roles, add the users to role, grant the permissions to role.
+fixed: has one or more permissions assigned
+custom: create the roles, add the users to role, grant the permissions to role.
 **application roles** no users. are activated using password 
 
 | DB Role | definition |
@@ -51,6 +52,15 @@ Two Types:
 - Database Firewall rules: control via TSQL only *sp_set_database_firewall_rule*
 
 Database checks for database level rules first, if none checks Server level
+
+## Network Connections
+
+| Type | Description | Pros | Cons |
+| --- | --- | --- | --- |
+| Public | | easy, control using rules | less secure | 
+| Private links | | connect a local network to the server. You can then disable public access | | 
+| VNet Endpoints | | limit to one region | server level only. less secure than the newer private link, still uses public IPs | 
+| Express Route | Extend on prem network to Cloud over private connection | more reliability, faster speeds, consistent latencies, and higher security  | looks complicated! |
 
 ## Microsoft Defender for SQL
 providers
