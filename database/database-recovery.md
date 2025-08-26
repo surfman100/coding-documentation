@@ -52,6 +52,7 @@ Additional setup for instance level logins, agents etc
 Enabled on the SQL server properties page. Use this of TSQL/Powershell.
 v2022 on, can include instance level objects, properties
 Active Secondary replicas: backup off the replica, read only access to replicas, 
+To bring up secondary replica use **restore with norecovery** to leave the DB non-operational
 
 
 | Type | Description | Specifics | 
@@ -104,6 +105,8 @@ all databases must be same service tier
 Cross subscription  geo-replica via programmatically
 up to 4 readable replicas in different regions
 RPO - a few seconds
+Readable Secondary replicas *in the same region* - create on a different server
+Good for scale out, not for DR
 
 **auto failover**
 auto failover or customer initiated. 
