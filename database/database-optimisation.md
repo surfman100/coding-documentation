@@ -4,14 +4,29 @@
 1. Query is parsed -> parse tree
 2. Algebrizer validations -> query processor tree
 3. Checks current query using query_hash for cached execution plan in plan cache
-4. Use cost-based optimizer -> query execution plan
+4. Use cost-based optimizer -> query execution plan(s)
 5. Excution
+
+query, schema, statistics -> optimizer -> 1 or more plans
+
+a **query plan**
+- sequence in which source tables accessed
+- methods used to extract
+- methods used to compute,aggregate etc
 
 memory grant = memory required for joining,sorting etc
 
 show plan
 - Expected: set showplan_all on
 - Actual: set statistics profile on
+
+## Lightweight Query 
+enabled using SSMS or **set statisticts**
+does not collect CPU info, does I/O and row count -> less expensive 
+use instead of delving into actual execution plan
+turn on *last_query_plan_stats* on DB to enable this additional info capture
+use *sys.dm_exec_query_plan_stats* to return link to actual query plan
+
 
 ## Dynamic Management Views/Functions
 all prefixed **sys.dm_**
