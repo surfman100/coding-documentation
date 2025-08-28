@@ -60,6 +60,15 @@ Roll Back: Transactions that weren't complete on backup
 | Data File | file(s). The filegroup is offline |
 | Data Page | restore individual pages |
 
+Restore to another Server
+| Type | Description |
+| --- | --- |
+| Long Term Backup |  | 
+| Geo Restore | requires GRS, need to create DB first |
+| Database Copy |  |
+| Active Geo-Replication |  |
+
+
 **Recovery State**
 Restore
 | With Option | Description |

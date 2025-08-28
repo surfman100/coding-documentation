@@ -28,12 +28,45 @@ turn on *last_query_plan_stats* on DB to enable this additional info capture
 use *sys.dm_exec_query_plan_stats* to return link to actual query plan
 
 
-## Dynamic Management Views/Functions
+## Dynamic Management Views (DMVs)/Functions
+DMVs represent views over internal functions, from **memory**
 all prefixed **sys.dm_**
+server or db scoped - required VIEW SERVER/DATABASE STATE
 
-e.g. 
-sys.dm_db_tuning_recommendations
-sys.dm_db_missing_index_details
+| related group | views | areas | 
+| --- | --- | --- | 
+| DB | dm_db_* | log, file |  
+| Server | dm_server_* | external_policy |  
+| Execution (standard SQL) | dm_exec_* | compute, query, request, sessions | 
+| Execution (Synapse/Parallel) | dm_pdw_* | 
+| Index | dm_db_index_*, dm_db_missing-* | usage, column |
+| IO | dm_io_ | cluster, |
+| Object | dm_db_*, dm_sql_* | entites, properties | |
+| Resource Governor | dm_resource_group_ | |
+| Security | dm_audit_*. dm_cryptographic | |
+| OS | dm_os_* | buffer, memory, wait |
+| Transaction | dm_tran_* | 
+|
+
+## System Catalog Views
+Info used by SQL Server. From database itself.
+All are **sys.**
+Some are being deprecated and moved to extended events
+
+| related group | areas | 
+| --- | --- |  
+| data space | data_spaces, filegroups, partition_schemes |  
+| security | database_permissions/principals/role_members, schema |
+| linked servers | linked_loings, remote_logins, servers | 
+| databases | files, recovery_status, connection_stats | 
+| azure_sql | database_firewall_rules, resource_stats, resource_usage |
+
+self explanatory groups:
+server configuration, xml_schemas, query_store, endpoints, 
+
+
+
+
 
 ## Query Store
 available under DB->QueryStore->7 views
@@ -42,6 +75,7 @@ available under DB->QueryStore->7 views
 - Wait stats store: Persists wait statistics information.
 
 Query store persists multiple execution plans
+Operation Mode can flip to ReadOnly/Off if max storage exhausted
 
 
 The views include
@@ -182,6 +216,8 @@ FROM sys.configurations
 ORDER BY name;
 
 ```
+
+## TempDB
 
 
 ## DBCC Commands

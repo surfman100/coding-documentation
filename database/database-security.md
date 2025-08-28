@@ -4,6 +4,8 @@
 - database
 - schema. Each user has a default schema (default is predefined dbo)
 
+You can auth users at the server or database level (more portable)!
+
 **logins** are used to access the database (irrelevant of authentication method)
 setup at server instance level and stored in *master* database. can be disabled.
 **users** are setup in the specific *database* level and have access to that database only. 

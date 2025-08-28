@@ -27,3 +27,6 @@ types
 Dynamic alerts: use to report significant changes   
 
 stateless (fire each time) v stateful (fire once and no more until fixed)
+
+## Live Query Statistics
+View the query as it executes 

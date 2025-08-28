@@ -100,9 +100,9 @@ Already has 99.99 availability built in. eg Advanced Database Recovery
 Applications should have retry logic as transient issues can occur. 
 Capabilities like OFFLINE, EMERGENCY state not available/needed.  
 
-**active geo-replication**.
+**active geo-replication (replicas)**.
 all databases must be same service tier
-Cross subscription  geo-replica via programmatically
+Cross subscription geo-replica via programmatically
 up to 4 readable replicas in different regions
 RPO - a few seconds
 Readable Secondary replicas *in the same region* - create on a different server
