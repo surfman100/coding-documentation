@@ -64,9 +64,9 @@ Restore to another Server
 | Type | Description |
 | --- | --- |
 | Long Term Backup |  | 
-| Geo Restore | requires GRS, need to create DB first |
+| [Geo-Restore](https://learn.microsoft.com/en-us/azure/azure-sql/database/recovery-using-backups?view=azuresql&tabs=azure-portal#geo-restore) | requires GRS!, need to create DB first. Create DB from Geo-Restore backup using wizard |
 | Database Copy |  |
-| Active Geo-Replication |  |
+| [Active Geo-Replication](Active Geo-Replication) | Think Replica's.  |
 
 
 **Recovery State**

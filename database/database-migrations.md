@@ -32,7 +32,8 @@ Process:
 ## Migrate at Scale 
 Use powershell or CLI
 
-## Data Migration Assistant
+## Data Migration Assistant (DMA)
+Now retired
 One stop standalone experience application. Offline only.
 
 ## BacPac

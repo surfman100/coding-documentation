@@ -11,8 +11,16 @@ Note difference between umbrella **azure monitor** and the visual **azure metric
 Azure monitor will not show you SQL Server performance details
 
 ## Auditing
+Applies to SQL Server only.
 Configure: Under security, auditing
 Send the data to Sentinel LogAnalytics Workspace
+Build on Extended Events
+- Audit object
+  - Server Specification: audit action groups, 1 per audit
+  - Database Specification: 
+- Target: Audit results are sent here
+
+
 
 ## Alerts 
 types

@@ -225,3 +225,11 @@ DBCC CHECKDB
 
 alter database
 - 
+
+
+## Compression
+To reduce DB Size
+- columnstore compression: used on CS tables and indexes. used by default
+- columnstore archival: slower indexes, takes times and CPU. reduced storage where data not accessed frequently (eg old months/years)
+- row: 
+- page: row, prefix & dictionary
