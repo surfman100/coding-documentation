@@ -1,5 +1,22 @@
 # Azure Database Migrations
 
+Tools
+- Azure Database Migration Service (large migrations, fully featured)
+- Data Migration Assistant (useful, recommend Migration Service )
+
+| Type | Pros | How | Cons | 
+| ---- | ---- | --- | --- |
+| Azure Migrate | source remains online and operational | |
+| Transaction replication | minimize downtime where no Always On. | Subscriber(target) request publication. Point new connections at Subcriber. |
+| Log Shipping | Minimal interuption, less setup | continous backups of transaction logs | 
+| Detach / Attach DB | Larger DBs | Store DB in Azure Storage |
+| Convert to VM | want to retain specific setup | | 
+| Import/Export wizard / Bacpac | | use multiple SQLPackage commands to parallelise | Can't restore one table, import is to a clean DB |
+| Bulk Copy | | need to know schema and data types | 
+| Azure Data Factory | | |
+| Windows Import/Export Service | Hugh transfers | Shipped hard drives |
+
+
 ## Migration Services
 Steps:
 Install
