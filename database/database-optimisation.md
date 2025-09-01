@@ -35,7 +35,7 @@ server or db scoped - required VIEW SERVER/DATABASE STATE
 
 | related group | views | areas | 
 | --- | --- | --- | 
-| DB | dm_db_* | log, file |  
+| DB | dm_db_* | log, file, resource |  
 | Server | dm_server_* | external_policy |  
 | Execution (standard SQL) | dm_exec_* | compute, query, request, sessions | 
 | Execution (Synapse/Parallel) | dm_pdw_* | 
@@ -46,7 +46,25 @@ server or db scoped - required VIEW SERVER/DATABASE STATE
 | Security | dm_audit_*. dm_cryptographic | |
 | OS | dm_os_* | buffer, memory, wait |
 | Transaction | dm_tran_* | 
-|
+
+### performance 
+| view | description | good for | 
+| --- | --- | --- |
+| sys.dm_db_resource_stats | current db/last hour | first for current/state or troubleshooting! |
+| sys.resource_stats | master db, 15mins snapshot for 14 days | size fitting. check your baseline figures v's lower size compute |
+| sys.dm_elastic_pool_resource_stats | same as view 1 for elastic pools | |
+| sys.elastic_pool_resource_stats | same as view 2 for elastic pools | |
+| sys.dm_exec_requests | snapshot at point in time | help you understand workload | 
+| sys.dm_resource_governor_workload_groups | metrics on workload groups | how grouped operations are performing | 
+| sys.dm_user_db_resource_governance | snapshot of activity | current requests, sessions |
+
+### I/O Performance
+- wait types affected PAGEIOLATCH_*
+- view sys.dm_os_waiting_tasks
+- query store
+
+### TempDB Performance
+- wait types affected PAGELATCH_*
 
 ## System Catalog Views
 Info used by SQL Server. From database itself.
@@ -64,10 +82,6 @@ Some are being deprecated and moved to extended events
 self explanatory groups:
 server configuration, xml_schemas, query_store, endpoints, 
 
-
-
-
-
 ## Query Store
 available under DB->QueryStore->7 views
 - Plan store: Stores estimated execution plan information.
@@ -77,9 +91,7 @@ available under DB->QueryStore->7 views
 Query store persists multiple execution plans
 Operation Mode can flip to ReadOnly/Off if max storage exhausted
 
-
 The views include
-
 | View | Description | Use / Addressing issues |
 | --- | --- | --- |
 | Regresssed Queries | Performance degradation over time | Force a query to use a plan |
@@ -225,7 +237,6 @@ DBCC CHECKDB
 
 alter database
 - 
-
 
 ## Compression
 To reduce DB Size

@@ -28,7 +28,6 @@ No Managed backup -> SQL restore
 ## Maintenance Plans
 Is an Integration Services package run by SQL Server Agent job.
 
-
 ## Recovery Models & Restore
 Data written to Transaction Log
 Periodically this is written to Disk

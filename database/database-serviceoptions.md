@@ -1,3 +1,4 @@
+# SQL Server Service Options
 
 ## SQL Types
 | Type | Tier | Pros | Features | Description |
@@ -6,22 +7,29 @@
 | Managed SQL | PAAS | | cross DB queries, CLR, System DB access, SQL Agent | shares sames code base as Azure SQL. Backup to blob |
 | SQL on VM | IAAS | Bring in out of Cloud servers using ARC |
 
-- Azure SQL Purchasing Model
+## Azure SQL Purchasing Model
   - **vCore-based**. Service Tiers:
-      - GP. (1 replica, no read scale replicas)
-      - Business Critical (several secondary replicas). *HA*
-      - Hyperscale (allows several secondary replicas)
+      - GP. (1 replica, no read scale replicas) *CT*
+      - Hyperscale (allows several secondary replicas. cutover when moving from non Hyperscale) *CT*
+      - Business Critical (several secondary replicas. can make it database zone redundant). *HA*  *RSO*
     - Hyperscale new Tech, once converted you can't go back. High Perf, instant backup / scaling. moves beyoud standard limiations. Cost marginally more than Azure SQL db.
   - **DTU-based**. Service Tiers:
       - Basic
       - Standard
       - Premium (managed db does not support this option) *HA*
-- Compute Tier
+
+### Compute Tier (*CT*)
   - Provisioned
   - Serverless (good for test and development: auto scale, auto pause)
 
+### Read Scale Out (*RSO*)
+An application can be redirected to one of the replicas when the connection string uses
+```
+ApplicationIntent=ReadOnly
+```
 
-  - Features
+
+## Features
   - Elastic Query
   - Predict for Machine Learning
   - Table paritioning -> when large rowcount impacts queries. Use of partition functions

@@ -17,10 +17,18 @@ remember boolean is $true/$false and not 'true'/'false' !
 arrays @()  
 objects [type]@{}  
 
+```
 Get-Module  
 Get-Command -module "ModuleName" *searchstring*  
+````
 
-simple loop\  
+output to table
+```
+Get-AzResourceGroup | Format-Table -Property ResourceGroupName
+```
+
+
+simple loop
 ```
 foreach ($id in Get-CGIPUserPoolList -Select 'UserPools.Id')  
 {   
