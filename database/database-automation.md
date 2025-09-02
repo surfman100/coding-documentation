@@ -18,13 +18,13 @@ types
 - SQL Server performance condition: metrics based
 
 ## Elastic Jobs
-Similar to Agent but only TSQL. 
-Create new database on a server
-Create User Managed Identity
-On target databases, add the logon/user for the UMI
-Create a job group
-Add targets to the group
-Create a job
-Run the job
+Similar to Agent but only TSQL.  
+Create new database on a server. 
+Create User Managed Identity. 
+On target databases, add the logon/user for the UMI 
+Create a job group. 
+Add targets to the group. 
+Create a job. 
+Run the job. 
 
 
