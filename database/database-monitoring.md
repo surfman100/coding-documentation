@@ -10,13 +10,14 @@
 Note difference between umbrella **azure monitor** and the visual **azure metrics**
 Azure monitor will not show you SQL Server performance details
 
-| Solution | Description |
-| --- | --- | 
-| Metrics and Alerts | DB, Elastic Pool resource consumption and health |
-| Query Performance Insight |  |
-| Monitor using DMVs |  |
-| Monitor using Query Store |  |
-| Database Watcher | Dashboards, single glass |
+| Solution | Description | Best For | 
+| --- | --- | --- | 
+| Metrics and Alerts | DB, Elastic Pool resource consumption and health | |
+| Query Performance Insight |  | |
+| Monitor using DMVs |  | some views are for current performance |
+| Monitor using Query Store | 7 views | Best for viewing issues with historical performance |
+| Database Watcher | Dashboards, single glass | |
+| Extended Events | admin, operational, analytic, debug | Use instead of Profiler or Trace to debug |
 
 ## Database Watcher
 To collect data, use either

@@ -6,7 +6,7 @@ Tools
 
 | Type | Pros | How | Cons | 
 | ---- | ---- | --- | --- |
-| Azure Migrate | source remains online and operational | |
+| Azure Migrate | source remains online and operational | target DB must be premium for online moves |
 | Transaction replication | minimize downtime where no Always On. | Subscriber(target) request publication. Point new connections at Subcriber. |
 | Log Shipping | Minimal interuption, less setup | continous backups of transaction logs | 
 | Detach / Attach DB | Larger DBs | Store DB in Azure Storage |
@@ -27,8 +27,11 @@ Both of the above tools look like Azure Data Factory pipeline monitoring section
 
 Speed depends on SKU (P15?). ADF initialisation time can be slow.
 
-**Azure Data Migrtion Service (DMS)**
+**Azure Data Migration Service (DMS)**
 is the one for Databases 
+does not actually initiate backups
+use WITH CHECKSUM to ensure backupdata integrity (can be slower)
+do not use WITH FILE_SNAPSHOT backup (super fast backup)
 
 **Azure Migrate** creates only VMs/Nics/Disks. Other Associated resources should be created.
 Rights

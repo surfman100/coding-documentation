@@ -19,14 +19,21 @@ custom: create the roles, add the users to role, grant the permissions to role.
 | DB Role | definition |
 | --- | --- |
 | public | default role, no permissions |
-| db_accessadmin | create users |
+| db_accessadmin | create users?, add/remove access to DB |
 | db_datareader | read every table/view in db |
 | db_datawriter | insert/update/delete every table/view in db |
 | db_deny* | denies the right when granted some other way |
-| db_securityadmin | grant access to other user, no data but can grant themselves |
+| db_securityadmin | grant access to other user, no data but can grant themselves. **monitor actions** |
+| db_ddladmin | run any DDL **monitor actions** |
 | db_owner | any action |
 
-a view additional roles exist for Azure SQL Database (virtual master)
+a view additional roles exist for Azure SQL Database (virtual master
+| Azure SQL master Role | definition |
+| --- | --- |
+| dbmanager | create & delete databases  |
+| db_exporter |   |
+| loginmanager | create and delete logins  |
+
 
 | Fixed Server Role | definition
 | --- | --- |

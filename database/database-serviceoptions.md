@@ -28,7 +28,6 @@ An application can be redirected to one of the replicas when the connection stri
 ApplicationIntent=ReadOnly
 ```
 
-
 ## Features
   - Elastic Query
   - Predict for Machine Learning
@@ -42,3 +41,6 @@ ApplicationIntent=ReadOnly
     - registers VM SQL on Azure (SQL Virtual Machines)
     - automates patching, backup etc
  
+## Polybase
+You can connect to Oracle DB etc without installing oracle software. Not AzureSQL
+

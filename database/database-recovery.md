@@ -32,7 +32,7 @@ Concepts:
 New-Cluster -Name MyWSFC -Node Node1,Node2,NodeN -StaticAddress w.y.x.z
 ```
 
-*Always On* refers to FCI & AG
+*Always On* refers to FCI & AG (so not Azure SQL!)
 
 **Failover Cluster Instances** configured on installation, can't convert later. 
 Is an instance of SQL Server installed on all nodes. Appears as a single instance. 
@@ -106,7 +106,8 @@ Cross subscription geo-replica via programmatically
 up to 4 readable replicas in different regions
 RPO - a few seconds
 Readable Secondary replicas *in the same region* - create on a different server
-Good for scale out, not for DR
+Good for scale out, not for DR, Good for HA (data center goes down)
+
 
 **auto failover**
 auto failover or customer initiated. 

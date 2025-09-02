@@ -134,9 +134,9 @@ For OLAP
 - Snowflake: more normalisation, so less space but more joins
 
 Indexes:
-- Keep **clustered** as narrow as possible ie unique. Also good to have this as the typical sort by direction. 
+- Keep **clustered** as narrow as possible i.e. unique. Also good to have this as the typical sort by direction. 
 - Note this is logical order (physical changes over time with deletions etc)
-- **Non-clustered** suited to multi column indexes. Can also be unqiue
+- **Non-clustered** suited to multi column indexes. Can also be unqiue. Add as a remedy to lots of table scans.
 - Think workloads, optimise around typical queries
 - Properly indexed DB results in less IOs (ie disk reads)
 - GOAL: most benefit from fewest number of indexes
@@ -188,7 +188,7 @@ Recommended for DataWarehousing, queries that run large aggregation workloads
 ## Extended Events
 Built on SQL Profiler 
 Monitor I/O, DDL operations, deadlocks 
-Create a session to capture selected events 
+Create a session, add events to capture, filter, target 
 Can filter by some criteria to only caputure instances you are interested in. 
 Store to: File, In Memory ring, event counter, 
 
@@ -199,7 +199,10 @@ Dashboards that can be used to monitor a range of servers/databases
 ## Workload Groups
 Container for session requests
 Usefull to limit how much resources a workload can use
-Used with Resource Govenor on SQL Instances 
+Used with **Resource Governor** on SQL Instances 
+- emable RG
+- create workgroup
+- create resource pool
 
 # Statistics
 stored as blobs, information on distribution of data in one or more columns 
@@ -234,13 +237,29 @@ ORDER BY name;
 
 ## DBCC Commands
 DBCC CHECKDB
+- REPAIR_REBUILD option
 
 alter database
 - 
 
 ## Compression
-To reduce DB Size
-- columnstore compression: used on CS tables and indexes. used by default
+To reduce DB Size and reduce IO
+- columnstore compression: used on CS tables and indexes. used by default. Designed for rarely accessed data. Not suitable for high R/W activity.
 - columnstore archival: slower indexes, takes times and CPU. reduced storage where data not accessed frequently (eg old months/years)
-- row: 
-- page: row, prefix & dictionary
+- row: optimizes storage & query performance where R/W activity
+- page: row, prefix & dictionary. optimizes storage but introduces CPU overhead (less suitable for updates)
+
+## Partitioning 
+Table Partitioning
+- create filegroups
+- a partition function that defines boundaries of partition column / data
+- a partition schema that links functions to filegroups
+- a table with "ORDER ON" schema
+Shards
+- implemented as different DB's on elastic pool
+- datasets (single item or multiple) are called shardlets.
+- shard key can by tenantID
+- requires a Global Shard map manager DB
+Mapping
+- List: seperate data by defined key, seperate shards eg tenants
+- Range: seperates by values
