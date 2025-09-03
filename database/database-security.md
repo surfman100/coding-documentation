@@ -6,16 +6,26 @@
 
 You can auth users at the server or database level (more portable)!
 
-**logins** are used to access the database (irrelevant of authentication method)
-setup at server instance level and stored in *master* database. can be disabled.
-**users** are setup in the specific *database* level and have access to that database only. 
-are either SQL Auth or Windows/Entra Auth 
-**roles** predefined by microsoft and allows creation of custom ones, database or server level.  
-**server roles** not available in Azure SQL
-fixed: has one or more permissions assigned
-custom: create the roles, add the users to role, grant the permissions to role.
-**application roles** no users. are activated using password 
+**logins**   
+- are used to access the database (irrelevant of authentication method)
+- setup at server instance level and stored in *master* database. can be disabled.    
 
+**users**   
+- are setup in the specific *database* level and have access to that database only. 
+- are either SQL Auth or Windows/Entra Auth   
+
+**roles**   
+- predefined by microsoft and allows creation of custom ones, database or server level.   
+
+**server roles**   
+- not available in Azure SQL
+- fixed: has one or more permissions assigned
+- custom: create the roles, add the users to role, grant the permissions to role.  
+
+**application roles**  
+- no users. are activated using password 
+
+## Roles
 | DB Role | definition |
 | --- | --- |
 | public | default role, no permissions |
@@ -42,11 +52,11 @@ a view additional roles exist for Azure SQL Database (virtual master
 | dbcreator | create, restore, alter, drop | 
 | public | default for each login |
 
-**permissions**
-basic ones: select, insert, update, delete on *tables and views*
-you can: grant, revoke, deny
-others: control, references, take ownership, view change tracking, view definition
-procs and functions: alter, control, execute, view change tracking, view definition
+## Permissions
+basic ones: select, insert, update, delete on *tables and views*  
+you can: grant, revoke, deny   
+others: control, references, take ownership, view change tracking, view definition  
+procs and functions: alter, control, execute, view change tracking, view definition  
 
 use Execute As to switch user being used (not Azure SQL)
 

@@ -20,11 +20,11 @@ show plan
 - Actual: set statistics profile on
 
 ## Lightweight Query 
-enabled using SSMS or **set statisticts**
-does not collect CPU info, does I/O and row count -> less expensive 
-use instead of delving into actual execution plan
-turn on *last_query_plan_stats* on DB to enable this additional info capture
-use *sys.dm_exec_query_plan_stats* to return link to actual query plan
+enabled using SSMS or **set statisticts**  
+does not collect CPU info, does I/O and row count -> less expensive   
+use instead of delving into actual execution plan  
+turn on *last_query_plan_stats* on DB to enable this additional info capture  
+use *sys.dm_exec_query_plan_stats* to return link to actual query plan  
 
 ## Dynamic Management Views (DMVs)/Functions
 DMVs represent views over internal functions, from **memory**
@@ -45,7 +45,7 @@ server or db scoped - required VIEW SERVER/DATABASE STATE
 | OS | dm_os_* | buffer, memory, wait |
 | Transaction | dm_tran_* | 
 
-### performance 
+### Performance 
 | view | description | good for | 
 | --- | --- | --- |
 | sys.dm_db_resource_stats | current db/last hour | first for current/state or troubleshooting! |
@@ -101,29 +101,27 @@ The views include
 | Tracking Query | Enter a query id | shows time based history |
 
 ## Identifying problems
-
-The views include
-
-**Hardware Constraints**: Not single query. CPU: observe "% Processor time". Storage: monitor at O/S level. Suboptimal queries biggest culprit.
-**Suboptimal Query constructs**:  Watch out for single row operations, cursors scalar functions, table value functions.
-**SARGability**: Where clause formatted to use an index. Avoid two sided "like" and parsing column e.g. "left(city,1) = 'M'". 
-**Missing Indexes**: Vital. Drop unused. *Clustered Index Scan* is sign index used. *Nonclustered Index seek*,*Key lookup* indicate missing columns on index
-**Missing/out of date Statistics**: Check *sys.dm_db_stats_properties* for last update.
+The views include:
+**Hardware Constraints**: Not single query. CPU: observe "% Processor time". Storage: monitor at O/S level. Suboptimal queries biggest culprit.  
+**Suboptimal Query constructs**:  Watch out for single row operations, cursors scalar functions, table value functions.  
+**SARGability**: Where clause formatted to use an index. Avoid two sided "like" and parsing column e.g. "left(city,1) = 'M'".   
+**Missing Indexes**: Vital. Drop unused. *Clustered Index Scan* is sign index used. *Nonclustered Index seek*,*Key lookup* indicate missing columns on index  
+**Missing/out of date Statistics**: Check *sys.dm_db_stats_properties* for last update.  
 
 ## Locking and Blocking
-Deadlocks are auto resolved after a period of time. A Deadlock Victim is choosen. 
-*sys.dm_tran_locks* and *sys.dm_exec_requests* can assist 
-Typically poor transactional design
+Deadlocks are auto resolved after a period of time. A Deadlock Victim is choosen.  
+*sys.dm_tran_locks* and *sys.dm_exec_requests* can assist  
+Typically poor transactional design  
 
 ## ToDo
 - Understand wait types
 - Isolation types
 
 ## Performance
-First step is to collect data measurements that form a baseline. 
-Automatic Tuning uses FORCE PLAN and monitors 
-Normalise OLTP but Denormalise OLAP 
-First, Second, Third forms
+First step is to collect data measurements that form a baseline.  
+Automatic Tuning uses FORCE PLAN and monitors   
+Normalise OLTP but Denormalise OLAP   
+First, Second, Third forms  
 
 For OLAP
 - Facts: for measurements e.g. sales
@@ -165,7 +163,7 @@ Before change:
  - be aware that Azure SQL enforce resource limits so as to meet SQL. 
 
 ## Columnstore
-Unlike traditional rowstore, data is physicall stored as column-wise data format.   
+Unlike traditional rowstore, data is physically stored as column-wise data format.   
 Both logically stored as table with rows & columns.   
 Columnstore slices table into *rowgroups* with high compression.  
 Each column in rowgroup is stored in *column segment*.   
