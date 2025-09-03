@@ -30,9 +30,9 @@ No Managed backup -> SQL restore
 Is an Integration Services package run by SQL Server Agent job.
 
 ## Recovery Models & Restore
-Data written to Transaction Log
-Periodically this is written to Disk
-Recovery decides to use or disregard this data to bring to consistency
+Data written to Transaction Log  
+Periodically this is written to Disk  
+Recovery decides to use or disregard this data to bring to consistency  
 
 | Option | Description |
 | --- | --- |
@@ -51,8 +51,8 @@ Recovery is the process for DB to start in clean state
 | Full | | minimize work-loss exposure | Requires log backups
 | Bulk Logged | like above + high perf bulk copy operations| minimize work-loss exposure | 
 
-Roll Forward: after first restore, apply each transaction log backup to roll forward the transactions
-Roll Back: Transactions that weren't complete on backup
+Roll Forward: after first restore, apply each transaction log backup to roll forward the transactions  
+Roll Back: Transactions that weren't complete on backup  
 
 | Option | Description |
 | --- | --- |
@@ -66,7 +66,7 @@ Restore to another Server
 | Long Term Backup |  | 
 | [Geo-Restore](https://learn.microsoft.com/en-us/azure/azure-sql/database/recovery-using-backups?view=azuresql&tabs=azure-portal#geo-restore) | requires GRS!, need to create DB first. Create DB from Geo-Restore backup using wizard |
 | Database Copy |  |
-| [Active Geo-Replication](Active Geo-Replication) | Think Replica's.  |
+| [Active Geo-Replication](https://learn.microsoft.com/en-us/azure/azure-sql/database/active-geo-replication-overview?view=azuresql&tabs=tsql) | Think Replica's.  |
 
 
 **Recovery State**
