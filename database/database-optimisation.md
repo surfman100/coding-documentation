@@ -6,10 +6,9 @@
 3. Checks current query using query_hash for cached execution plan in plan cache
 4. Use cost-based optimizer -> query execution plan(s)
 5. Excution
-
 query, schema, statistics -> optimizer -> 1 or more plans
 
-a **query plan**
+a query plan consists of:
 - sequence in which source tables accessed
 - methods used to extract
 - methods used to compute,aggregate etc
@@ -26,7 +25,6 @@ does not collect CPU info, does I/O and row count -> less expensive
 use instead of delving into actual execution plan
 turn on *last_query_plan_stats* on DB to enable this additional info capture
 use *sys.dm_exec_query_plan_stats* to return link to actual query plan
-
 
 ## Dynamic Management Views (DMVs)/Functions
 DMVs represent views over internal functions, from **memory**
@@ -167,14 +165,13 @@ Before change:
  - be aware that Azure SQL enforce resource limits so as to meet SQL. 
 
 ## Columnstore
-Unlike traditional rowstore, data is physicall stored as column-wise data format. 
-Both logically stored as table with rows & columns 
-Columnstore slices table into *rowgroups* with high compression 
-Each column in rowgroup is stored in *column segment* 
-*Clusterd Columnstore index* is the physical storage. Might use additional deltastore/b-tree in the background. 
-*Non clustered columnstore index* is additional index. For real-time operational analytics 
-Recommended for DataWarehousing, queries that run large aggregation workloads
-
+Unlike traditional rowstore, data is physicall stored as column-wise data format.   
+Both logically stored as table with rows & columns.   
+Columnstore slices table into *rowgroups* with high compression.  
+Each column in rowgroup is stored in *column segment*.   
+*Clusterd Columnstore index* is the physical storage. Might use additional deltastore/b-tree in the background.   
+*Non clustered columnstore index* is additional index. For real-time operational analytics.   
+Recommended for DataWarehousing, queries that run large aggregation workloads.  
 
 ## Plan operators
 [documentation](https://learn.microsoft.com/en-us/sql/relational-databases/showplan-logical-and-physical-operators-reference?view=sql-server-ver17)
@@ -186,15 +183,15 @@ Recommended for DataWarehousing, queries that run large aggregation workloads
 | Table scan | retrieves all row on a table | |
 
 ## Extended Events
-Built on SQL Profiler 
-Monitor I/O, DDL operations, deadlocks 
-Create a session, add events to capture, filter, target 
-Can filter by some criteria to only caputure instances you are interested in. 
-Store to: File, In Memory ring, event counter, 
+Built on SQL Profiler    
+Monitor I/O, DDL operations, deadlocks   
+Create a session, add events to capture, filter, target   
+Can filter by some criteria to only caputure instances you are interested in.   
+Store to: File, In Memory ring, event counter,   
 
 ## Database Watcher
-New preview product.
-Dashboards that can be used to monitor a range of servers/databases 
+New preview product.  
+Dashboards that can be used to monitor a range of servers/databases  
 
 ## Workload Groups
 Container for session requests

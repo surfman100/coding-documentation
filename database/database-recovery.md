@@ -1,7 +1,7 @@
 # Disaster Recovery
 thinking of: 
-Availibility capabiltiies
-Backup and Restore strategy
+- Availibility capabiltiies  
+- Backup and Restore strategy  
 
 
 ## RTO & RPO
@@ -101,13 +101,19 @@ Applications should have retry logic as transient issues can occur.
 Capabilities like OFFLINE, EMERGENCY state not available/needed.  
 
 **active geo-replication (replicas)**.
-all databases must be same service tier
+replciates data to read only secondary (geo-replica or geo-secondary) in same or diff region
+all databases must be same service tier, configured per database
 Cross subscription geo-replica via programmatically
+Is a BCP solution
 up to 4 readable replicas in different regions
 RPO - a few seconds
 Readable Secondary replicas *in the same region* - create on a different server
-Good for scale out, not for DR, Good for HA (data center goes down)
+- Good for scale out
+- not for DR **if you use same region** (but allows you to recovery)
+- Good for HA (data center goes down) **if you use zone redundancy**
 
+**zone redundancy** 
+enable this to ensure DB uses availability zones in your region to replicate data across locations
 
 **auto failover**
 auto failover or customer initiated. 
