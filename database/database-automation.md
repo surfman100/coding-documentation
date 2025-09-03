@@ -11,7 +11,7 @@
 ## SQL Agent 
 Create **Maintenance Plans** via SSMS Wizard.   
 Scheduling regular maintenance - indexes, statistics  
-*Notifications* - Enable Agent email profile, sent to operators(define) - Job success/failure
+*Notifications* - Enable Agent email profile, sent to operators(define) - Job success/failure  
 *Alerts* - Select Metric, counter
 types
 - SQL Server event: specific error occurs
