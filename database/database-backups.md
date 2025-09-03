@@ -10,7 +10,8 @@ note use of recovery modes
 ## IaaS Backups
 use Azure Backup to backup the VM. Is SQL app aware.  
 backup locations include disks or to url (blob storage):  
-- use FROM/TO url  
+- use FROM/TO url
+
 Automatic backups are available as part of the SQL aware VM setup  
 Need to create credential (SAS) in sys.credentials if backing up from URL  
 
