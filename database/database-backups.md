@@ -8,22 +8,22 @@ to use differential/logs the db must be restored *with norecovery* or *with stan
 note use of recovery modes
 
 ## IaaS Backups
-use Azure Backup to backup the VM. Is SQL app aware.
-backup locations include disks or to url (blob storage):
-- use FROM/TO url
-Automatic backups are available as part of the SQL aware VM setup
-Need to create credential (SAS) in sys.credentials if backing up from URL
+use Azure Backup to backup the VM. Is SQL app aware.  
+backup locations include disks or to url (blob storage):  
+- use FROM/TO url  
+Automatic backups are available as part of the SQL aware VM setup  
+Need to create credential (SAS) in sys.credentials if backing up from URL  
 
 ## PaaS Backups
-Automatically provided. 
-- full weekly
-- differential 12 hours  (different since full. only restore lastest)
-- transaction log 5-10mins
-Use retention policies to setup how long to retain backups
-Delete Server -> all backups deleted
-Delete DB -> can be restored
-PIR default is 7days, can be extended to 35days
-No Managed backup -> SQL restore
+Automatically provided.  
+- full weekly  
+- differential 12 hours  (different since full. only restore lastest)  
+- transaction log 5-10mins  
+Use retention policies to setup how long to retain backups  
+Delete Server -> all backups deleted  
+Delete DB -> can be restored  
+PIR default is 7days, can be extended to 35days  
+No Managed backup -> SQL restore  
 
 ## Maintenance Plans <a name="maintenanceplans"></a>
 Is an Integration Services package run by SQL Server Agent job.
