@@ -1,11 +1,17 @@
 # Overview of AI tooling and more for Microsoft
 
+| Link | Notes |
+| --- | --- |
+| [Listing of LLM](https://en.wikipedia.org/wiki/List_of_large_language_models) | good for keeping up to date | 
+| [AI Foundry Portal](https://ai.azure.com/) | seperate to the Azure |
+
+
 **Terminology**
 
 | TLA | Term | Description | Example |
 | ---- |  ---- | ---- | ---- |
-| SLM | Small Language Model | optimized for specific scenarios | |
-| LLM | Large Language Model | Cruch large quantities of data to get the average | |
+| SLM | Small Language Model | optimized for specific scenarios. Cost effective / speedy. low spec devices | |
+| LLM | Large Language Model | Cruch large quantities of data to get the average. deep reasoning, complex content | |
 | | Multi Model model | prompts & responses can includes images, speeach |
 | RAG | Retrieval Augmented Generation | access right data from your database | |
 | | GenAI | original responses to natural language prompts. uses LM's to respond to prompts | |
@@ -15,6 +21,13 @@
 |  | Speech <sup>3</sup> | ability to recognise and synthesize speech | e.g alexa |
 | | Information Extraction | ability to use <sup>1</sup>,<sup>2</sup> and <sup>3</sup> to extract information | 
 | | Descision Support | ability to use historic and learned correlations to make predications |
+
+## LLM Background 
+*Transformer Models* - process words individually and in parallel. use *attention* and *positional encoding*  
+Models: 1000's to choose from. [huggingface](https://huggingface.co/models), [github](https://github.com/marketplace/models-github) [azure](https://ai.azure.com/explore/models?tid=aef7d964-ee79-491b-b95e-ebf0e1b9db8c)  
+Choice
+- LLM v SLM  
+- Modality, task, tool
 
 ## Azure AI Services
 
@@ -41,8 +54,15 @@ Portal and SDK.
 **AI Services SDKs** - libs for multiples frameworks/languages to consume the Rest Services  
 **AI Founrdy Agent Service** - accessed via SDK used to build comprehensive agent solutions
 
+## AI Foundry 
+2 azure resources created  
+- *azure ai foundry* resource - includes connections, models  
+- *azure ai foundry project* - includes project specific resources   
 
-
+Use the endpoints & keys to access:  
+- the project  
+- the azure ai services  
+- the OpenAI foundry models  
 
 
 
