@@ -6,24 +6,29 @@ Entra user at the database level
 ## Users and Logins
 ```
 -- logins (at the master database level)
--- create login sync_reader with password = 'xxxxxxx'
+-- create login new_user_login with password = 'xxxxxxx'
 -- either windows auth or sql auth entries
 select * from sys.sql_logins
 
 --users (at the database level)
 --you create a db user for a server login e.g. create user myuser for login mylogin
--- create user sync_reader for login sync_reader
+-- create user new_user_login for login new_user_login
 select * from sys.database_principals where type ='S'
 
 --select database roles
 select * from sys.database_principals where type ='R'
 
 -- granting database roles (note db_datawriter does not inherit db_datareader, you need to grant both)
-exec sp_addrolemember 'db_datawriter','d365_admin'
-exec sp_addrolemember 'db_datareader','d365_admin'
+--exec sp_addrolemember 'db_datawriter','new_user_login'
+--exec sp_addrolemember 'db_datareader','new_user_login'
+--exec sp_addrolemember 'db_ddladmin','new_user_login'
+
+-- granting permission to execute proc to a new login/user
+-- grant execute to 'new_user_login'
+
 
 -- granting server roles
-ALTER SERVER ROLE ##MS_DefinitionReader## ADD MEMBER [AzureAD_object];
+--ALTER SERVER ROLE ##MS_DefinitionReader## ADD MEMBER [AzureAD_object];
 
 -- user roles
 SELECT    roles.principal_id                            AS RolePrincipalID
