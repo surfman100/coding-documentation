@@ -38,3 +38,10 @@ limit the concurrent message processing using
       }
     }
 ```
+
+address transient deadlocks
+````
+//in the configuration of the EF context, enable this option
+  services.AddDbContext<MyContext>(options => options.UseSqlServer(hostContext.Configuration["ConnString"], options=>options.EnableRetryOnFailure()));
+
+```

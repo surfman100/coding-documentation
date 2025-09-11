@@ -63,3 +63,6 @@ Need to have Entra PIM
 
 ## Best Practices  
 - Use RBAC instead of older admin roles or resource specific functionality
+- groups not users
+- Use PIM to time-bound access
+- limit subscription owners
