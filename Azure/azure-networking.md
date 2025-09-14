@@ -25,5 +25,6 @@ Private network in Azure for VMs
 
 
 ## Networking Concepts
-CIDR notation: split the IP into route prefixins / host addressing
-192.0.2.1/24 = 24 significants bits are the prefix, remaining 8 = host addressing = 2 pow (32 - 24) = 2 pow (8) = 256
+CIDR notation: split the IP into route prefixins / host addressing. 
+Remember 2^8 = 256
+192.0.2.1/24 = 24 (8 + 8 + 8) significants bits are the prefix, remaining 8 = host addressing = 2 pow (32 - 24) = 2 pow (8) = 256. 
