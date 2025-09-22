@@ -52,3 +52,10 @@ types include:
 - number  
 - bool  
 - list  
+
+## Azure Export for Terraform 
+Install
+```
+winget install aztfexport
+```
+
