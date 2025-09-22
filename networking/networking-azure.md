@@ -11,8 +11,6 @@
 | Private Link | Connects resources to the VNET eg Storage |
 | Network Security Groups | secure resources within subnets |
 
-
-
 ## VNET
 Private network in Azure for VMs    
 Can't change address space after creation.  
@@ -79,3 +77,20 @@ e.g.
 | Subnet1 | 10.0.0.0/26 | 10.0.0.192 -> 10.0.0.255 | 
 
 A service might require or create their own subnet. (e.g. dedicated subnet needed for VPN Gateway)
+
+## Network Security Group 
+Note the default rules that are present at low priority. Inter VNET comms on by default. Can't delete  
+Add custom entries in range 100-4096  
+Use at the subnet level as lot of maintenance at higher level (need to repeat rules)
+**Traffic**
+- Inbound: NSG rules applied at Subnet and then NIC
+- Outbound: NSG rules applied at NIC and then Subnet 
+
+To understand the effective rules:
+- Use **Effective Security Rules** option on NSG
+- Or Network Watcher  
+
+**Service Tags** - Defined by Microsoft
+**Application Security Groups** - Add VMs to an ASG. Then use this in the NSG rules. 
+
+Use NSG & ASG instead of subnets to divide
