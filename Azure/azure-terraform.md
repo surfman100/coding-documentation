@@ -59,3 +59,5 @@ Install
 winget install aztfexport
 ```
 
+### Gotcha's
+First plan might not work and require script finessing.    

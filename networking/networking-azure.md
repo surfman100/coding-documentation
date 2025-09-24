@@ -15,6 +15,9 @@
 Private network in Azure for VMs    
 Can't change address space after creation.  
 Public IP's are not associated with a VNet, more on the resource itself (eg VM)
++ Performance
++ Data sharing
+
 
 ## Public IPs
 Static - removed when resource deleted  
@@ -115,3 +118,23 @@ Use NSG & ASG instead of subnets to divide
 defined connectivity & security configurations across multiple Virtual Networks  
 **Security Admin Rules** are higher priority than Network Security Group rules, run first  
 Allow, Always Allow, Deny. Evaluation stops at the last two.  
+
+## Azure VPN Gateway  
+Used to Secure traffic between:
+- Azure VNet and OnPrem locations  
+- Azure VNets over MS Network  
+
+uses a special type of VNet called **VPN Gateway**
+This is a subnet of type **GatewaySubnet** added to the VPN
+
+
+## Azure Network Appliances  
+Types include:
+- firewalls  
+- load balancers  
+- instrusion detection/prevention systems IDS/IPS  
+- WAN Opimisation controllers  
+
+## Route Tables  
+Create and then add custom routes 
+Need to enable IP forwarding on VM and in OS  
