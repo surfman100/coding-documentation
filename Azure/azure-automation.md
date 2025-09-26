@@ -2,6 +2,7 @@
 
 ## Automation
 Create runbooks to run powershell or python
+- There is a graphical editor
 
 ## Logical Apps
 - Connectors

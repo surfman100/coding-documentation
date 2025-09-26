@@ -14,3 +14,10 @@ Another tool [NTTTCP](https://learn.microsoft.com/en-us/azure/virtual-network/vi
 Install and run in *receive* and *send* mode  
 
 **tracepath** shows all the hops to reach a destination 
+
+## Private IP Classes 
+Private IP classes are designated ranges of private IP addresses, reserved for internal use within local networks and not routable on the public internet.  
+The three private IP classes are: 
+- Class A (10.0.0.0 to 10.255.255.255) for large orgnaisations  
+- Class B (172.16.0.0 to 172.31.255.255) for medium sized  
+- Class C (192.168.0.0 to 192.168.255.255) for home  

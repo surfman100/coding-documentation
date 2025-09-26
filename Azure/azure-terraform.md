@@ -59,5 +59,18 @@ Install
 winget install aztfexport
 ```
 
+this tool:
+- uses **aztft** to identify terraform resource type to azure resoure id 
+- runs **terraform import** to import each resource 
+- then **tadd** to generate HCL code  
+
+
 ### Gotcha's
-First plan might not work and require script finessing.    
+Some are: 
+- First plan might not work and require script finessing.    
+- Moving between machines you might lose state. If this is the case you can import using **import** statement and markup  
+
+
+```
+terraform state list
+```
