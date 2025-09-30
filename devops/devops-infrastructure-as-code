@@ -1,0 +1,52 @@
+# Infrastructure as Code
+
+- Consistent configurations
+- Improved scalability
+- Faster deployments
+- Better traceability
+
+## ARM Templates
+run faster than scripted deployments 
+can been broken down into smaller reusabel and nested  
+
+## Deployments
+Deploy into a resource group using 
+
+```
+az deployment group create --resource-group rg-test --name rollout1 --template-uri https://myresource/azuredeploy.json --paramaters @myparameters.json
+```
+
+Parameters may be supplied from a file using the `@{path}` syntax, a JSON string, or as `<KEY=VALUE>` pairs
+use
+- template-uri
+- template-file  
+
+## Providers
+Use resource providers to create specific resources 
+
+```
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.1",
+  "apiProfile": "",
+  "parameters": {},
+  "variables": {},
+  "functions": [],
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2023-05-01",
+      "name": "learntemplatestorage123",
+      "location": "westus",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "StorageV2",
+      "properties": {
+        "supportsHttpsTrafficOnly": true
+      }
+    }
+  ],
+  "outputs": {}
+}
+```

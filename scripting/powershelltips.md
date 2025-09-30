@@ -1,9 +1,13 @@
 # Powershell Tips
 Hints & tips on using Powershell
 
+## Benefits
+Output as Object. Can be manipulated more than if just text based 
+Has **cmdlets** in
+
 ## Latest versions
 Use
-- Powershell 7 (check version $PSVersionTable.PSVersion)
+- Powershell 7+. check version using ```$PSVersionTable.PSVersion```
 - Az module instead of deprecated AzureRM
 ```
 Get-Modules -list     // list modules
