@@ -1,5 +1,6 @@
 # Powershell Tips
-Hints & tips on using Powershell
+Hints & tips on using Powershell. 
+Unlike bash, powershell returns Objects
 
 ## Latest versions
 Use
