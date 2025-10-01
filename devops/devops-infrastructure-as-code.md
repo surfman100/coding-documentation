@@ -5,6 +5,15 @@
 - Faster deployments
 - Better traceability
 
+## Azure Resource Manager
+A service used to deploy and manage resources in Azure. 
+Receives request, sends it to specific Azure resource provider. 
+
+**Control Plane** requests are sent to [https://management.azure.com/subscriptions...](https://management.azure.com/subscriptions...)
+
+**Data Plane** requests are sent a specific endpoint eg Key Vault 
+
+
 ## ARM Templates
 run faster than scripted deployments 
 can been broken down into smaller reusabel and nested  
@@ -36,8 +45,8 @@ Use resource providers to create specific resources
     {
       "type": "Microsoft.Storage/storageAccounts",
       "apiVersion": "2023-05-01",
-      "name": "learntemplatestorage123",
-      "location": "westus",
+      "name": "stsbillstesttesttest",
+      "location": "northeurope",
       "sku": {
         "name": "Standard_LRS"
       },
@@ -50,3 +59,30 @@ Use resource providers to create specific resources
   "outputs": {}
 }
 ```
+
+## Bicep 
+Simpler syntax, modules, type validation and intellisense 
+Looks similar to Terraform!! 
+Bicep tooling eg Az Cli, converts (**transpilation**) bicep->json 
+
+```
+param location string = resourceGroup().location
+param namePrefix string = 'storage'
+
+var storageAccountName = '${namePrefix}${uniqueString(resourceGroup().id)}'
+var storageAccountSku = 'Standard_RAGRS'
+
+resource storageAccount 'Microsoft.Storage/storageAccounts@2023-05-01' = {
+  name: storageAccountName
+  location: location
+```
+
+**Advantages**
+- Azure-native   
+- Azure integration  
+- Azure support  
+- tracks state  
+- use **build** and **decompile** to see ARM Json 
+
+**Disadvantages**
+Not for multicloud 
