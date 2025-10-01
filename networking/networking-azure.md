@@ -138,3 +138,6 @@ Types include:
 ## Route Tables  
 Create and then add custom routes 
 Need to enable IP forwarding on VM and in OS  
+
+## Firewall 
+IP Groups -> group and manage IP addresses. 
