@@ -15,6 +15,7 @@ Note: ensure files are in the root directory. An *init* command will not error o
 | main.tf | creates the resources |  |
 | outputs.td | | 
 | .terraform.lock.hcl | Lock file created by init | |
+| terraform.tfvars | use to set the variables. do not check in ||
 
 ### Plan and Apply 
 initialise to create the lock file and validate  
@@ -39,6 +40,28 @@ cleanup by destroying
 terraform plan -destroy -output main.destroy.tfplan
 terraform apply main.destroy.tfplan
 ```  
+
+## handles errors
+
+Import state by using syntax below
+```
+# syntax 
+terraform import [address_of_resource_in_terraform] [id_of_resource_in_azure]
+
+# run 
+terraform import azurerm_app_configuration.app-configuration  "/subscriptions/1b6a05e4-7e7f-40c7-9045-854487cd81c2/resourceGroups/rsg_apps_shamrock_test_we/providers/Microsoft.AppConfiguration/configurationStores/appcs-shamrock-dae-84599"
+
+## child objects also need to be imported
+terraform import azurerm_key_vault_access_policy.key-vault-access "/subscriptions/1b6a05e4-7e7f-40c7-9045-854487cd81c2/resourceGroups/rsg_apps_shamrock_test_we/providers/Microsoft.KeyVault/vaults/kv-shamrock-dae-84599/objectId/dba920c0-a0de-41eb-b17e-dfdd4887f4f1"
+```
+
+This can be useful if your terraform script has a lot of interlinked dependancies, you can't just remove a failing resource.
+Process:
+- run terraform apply and determine whats failing  
+- setup the failing resource manually  
+- import the created resource  
+- repeat  
+
 
 ## Register Provider in Azure 
 
