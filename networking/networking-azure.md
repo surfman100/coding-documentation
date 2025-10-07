@@ -16,7 +16,25 @@ Private network in Azure for VMs
 Can't change address space after creation.  
 Public IP's are not associated with a VNet, more on the resource itself (eg VM)
 + Performance
-+ Data sharing
++ Data sharing  
+
+**outbound**  
+All resources can communicate outbound by default. 
+Public IP, NAT gateway, Public Load Balancer can also be used to manage outbound
+**inbound**  
+Public IP, Public Load Balancer can also be used to manage inbound
+
+**Azure Resources communicate using**: 
+- VNet: VMs, AKS etc
+- VNet service endpoints: Storage accounts, SQL Database 
+- VNet peeiring: VNet to VNet  
+- point to site VPN: VNet and single PC
+- site to site VPN: VPN gateway and on premises VPN device 
+- Express route: Private link to Azure (no public internet) 
+
+**Filter traffic**: 
+- Network sercurity groups: NSG & ASG
+- Network virtual applications: VM that performs network function eg WAN, Firewall 
 
 
 ## Public IPs

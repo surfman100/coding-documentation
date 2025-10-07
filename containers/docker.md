@@ -71,6 +71,23 @@ each layer is put into its own subdirectory
 running on container from image a union filesystem is created, layers stacked  
 two dirs -> union filesystem & a run directory 
 
+```
+# Use the .NET 6 runtime as a base image
+FROM mcr.microsoft.com/dotnet/runtime:6.0
+
+# Set the working directory to /app
+WORKDIR /app
+
+# Copy the contents of the published app to the container's /app directory
+COPY bin/Release/net6.0/publish/ .
+
+# Expose port 80 to the outside world
+EXPOSE 80
+
+# Set the command to run when the container starts
+CMD ["dotnet", "MyApp.dll"]
+```
+
 **Create a new image layer**  
 make a change in a running container and then in another terminal execute:
 ```
@@ -83,8 +100,18 @@ Build it
 Tag it
 Push it
 
+OR
+
+pull a docker file 
+tag it with your ACR address  
+Push it to ACR  
+
+## Visual Studio
+Check out Docker extension 
+
+
 Playground [here](https://labs.play-with-docker.com/?_gl=1*13rprn6*_gcl_au*MTU1MjU0NDg5Ny4xNzU3NDMwNDcw*_ga*MzA0MTIwODM2LjE3NTc0MzAwNTQ.*_ga_XJWPQMJYHQ*czE3NTc2ODY3OTkkbzckZzEkdDE3NTc2ODkyNzYkajYwJGwwJGgw)  
 have a look at [Networking](https://docs.docker.com/engine/network/#published-ports)
 
 left off here:
-https://docs.docker.com/get-started/workshop/04_sharing_app/
+https://docs.docker.com/get-started/workshop/04_sharing_app/  

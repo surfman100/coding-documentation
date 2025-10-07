@@ -1,7 +1,8 @@
 # Aspire
 Building observable, production-ready distributed apps
 Key capabilities: orchestration (local development), integrations, consistent tooling  
-A replacement for Docker Compose when developing  
+
+**NB** A replacement for Docker Compose when developing. instead of markup, code
 
 
 ## The Starter Projects  

@@ -1,6 +1,40 @@
 # Azure Functions
 Need to understand the nuances and differences compared to a simple C# Class Library
 
+## Hosting Options 
+
+| Option | Description | Scale Out | 
+| --- | --- | --- |
+| Consumption | default. pay as you go. | event driven | 
+| Flex Consumption | configure instances. High scalability. | function based |
+| Premium | prewarmed workers, powerful instances, vnets connectivity, CPU intensive | event driven 
+| Dedicated | full isolation, predicatable billing, high mem | manual/autoscale |
+| Container Apps | hosted by Azure Container Apps, custom libs | event driven |
+
+## Files 
+
+| File | Description |
+| --- | --- | 
+| host.json | every language. config options. binding configs applied to all | 
+| local.settings.json | every language. local configuration options. | 
+| App Settings | cloud configuration settings | 
+| function.json |  | 
+
+In development, use connection strings in local.settings.json 
+
+## Bindings / Triggers 
+
+**triggers**: how invoked, 1 only, associated data 
+**bindings**: optional. declaratively connecting to other services. input/output. 
+
+| Language | Configure by... |
+| --- | --- | 
+| c# | decorating methods/parameters c# attributes  | 
+| java | decorating methods/parameters c# annotations  | 
+| scripts | updating functions.json  | 
+
+Azure Files doesn't support using managed identity when accessing the file share
+
 ## Failed startup
 Its critical that you don't forget App Settings for a successful start up of the Function App.
 Typicaly ones include
@@ -40,8 +74,11 @@ limit the concurrent message processing using
 ```
 
 address transient deadlocks
-````
+```
 //in the configuration of the EF context, enable this option
   services.AddDbContext<MyContext>(options => options.UseSqlServer(hostContext.Configuration["ConnString"], options=>options.EnableRetryOnFailure()));
 
 ```
+
+## Functions v WebJobs   
+Webjobs more limited 
