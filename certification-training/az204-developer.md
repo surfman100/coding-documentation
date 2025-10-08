@@ -6,7 +6,7 @@
 [Azure Networks](/networking/networking-azure.md)
 [Azure Functions](/azure/azure-functions.md)
 [Azure AppConfig KeyVault](/azure/app-config-keyvault.md)
-
+[Azure App Insights](/azure/app-insights.md)
 
 ## Questions for practice exam
 instrumentation  

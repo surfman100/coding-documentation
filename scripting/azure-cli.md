@@ -4,10 +4,13 @@
 Install the **az** command via MSI
 
 ## Extensions
-List the available extensions
+List the available extensions, add container app extension 
 ```
 az extension list-available --output table
+
+az extension add --name containerapp --upgrade 
 ```
+
 
 ## Copy the contents of Storage Account to another Storage Account
 This copy works across tenants and is super quick
