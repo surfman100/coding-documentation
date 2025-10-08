@@ -43,9 +43,11 @@ az containerapp env create --name --resource-group --location
 
 ## Namespaces 
 require
-- Microsoft.App
+- Microsoft.App -> container setup
 - Microsoft.OperationalInsights 
 
+other namespaces
+- Microsoft.ContainerService -> managed clusters && more?
 
 ## Azure Container Apps (ACA)
 Powered by kubernetes (do direct access to K api). Simple to get going on. **AKS** more advanced/complex. 

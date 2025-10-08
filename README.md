@@ -3,6 +3,8 @@ My Random Coding Blog
 
 ## Certification Training
 * [DP-300 Azure Database Admin](certification-training/dp-300.md)
+* [AZ-104 Administrator](/certification-training/az104-administrator.md)
+* [AZ-204 Developer](/certification-training/az204-developer.md)
 
 ### Web
 * [API Best Practices](web-applications/APIs.md)
