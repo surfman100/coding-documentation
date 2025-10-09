@@ -15,4 +15,8 @@
 Both metrics and acitivity can be routed to log storage.
 Use diagnositics to route to log storage outside of Azure Monitor. 
 
-Application Insights allow you to look at both types of data without needing to know whether metrics or log data.
+Application Insights allow you to look at both types of data without needing to know whether metrics or log data.  
+
+## Monitor Explorer 
+Find, configue & add charts to Workspace. 
+Checkout Dashboards. 

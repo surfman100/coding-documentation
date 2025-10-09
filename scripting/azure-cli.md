@@ -4,10 +4,13 @@
 Install the **az** command via MSI
 
 ## Extensions
-List the available extensions
+List the available extensions, add container app extension 
 ```
 az extension list-available --output table
+
+az extension add --name containerapp --upgrade 
 ```
+
 
 ## Copy the contents of Storage Account to another Storage Account
 This copy works across tenants and is super quick
@@ -39,5 +42,11 @@ az vm show --name "VM1" --resource-group "RG1" --query "networkProile.networkInt
 
 // role assignements
 az role assignment create --assignee $userPrincipal --role "Storage Blob Data Owner" --scope $resourceId
+```
+
+## Query results
+Multiple values
+```
+az storage account list --query "[].{Name:name,IsHnsEnabled:isHnsEnabled}" -o table
 ```
 

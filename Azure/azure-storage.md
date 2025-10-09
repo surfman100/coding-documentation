@@ -7,6 +7,55 @@
 | Queue Storage | up to 64kb messages |
 | Table Storage | NoSQL, Key/Attribute. Cosmos is newer |
 
+## Blob Storage 
+**Hierachial Namespace HNS**  
+organise in hierachy of directories & sub directories  
+increases storage cost but can lower compute costs  
+
+**data lake** 
+data stored in natural format. requires HNS. Optimised for analytics workloads.  
+allows you treat data as if it's stored in an HDFS.  
+allows you to access via ABFS (Azure Blob File System - part of Apache Hadopp).  
+Access data in one place (don't move) using Azure DataBricks, Azure HDInsights, Synapse Analytics  
+- supports ACL, RBAC, Shared Key Authorization, SAS authorization    
+- connect using HDFS Cli
+- connect using NFS  
+- connect using SFTP (setup a user)  
+
+```
+# Connect to Blob Storage account with a local user that has a home directory
+
+sftp <myaccount>.<myusername>@<myaccount>.blob.core.windows.net
+
+# Connect to Blob Storage account with a local user that doesn’t have a home directory
+
+sftp <myaccount>.<mycontainer>.<myusername>@<myaccount>.blob.core.windows.net
+```
+
+### Costs 
+- Tier Storage Costs
+- Data Access Costs (more for cooler) 
+- Transaction Costs (more for cooler) 
+- Geo Replication Costs 
+- Outbound Data Transfer Costs 
+- Tier change Costs
+
+### Security 
+container access:
+- private (no anonymous access)
+- container (anonymous read for containers/blobs)
+- blob (anonymous read for blobs only)
+
+public: can restrict to VNets (same) or IPs  
+private endpoints: stop traffic going over internet 
+
+use SAS over Shared Account Keys 
+
+
+### Tiers 
+Cool/Cold/Archive. Must stay in for 30/90/180 days or there is a retrieval charge   
+Lifecycle rules to move between tiers. If created/updated more than x days ago. Delete the blob option available. 
+
 **URL** is https://[storageaccountname].blob.core.windows.net  
 can create a DNS for blob access 
 
@@ -17,8 +66,14 @@ can create a DNS for blob access
 | Premium File Shares | high performance needs, SMB & NFS support | 
 | Premium Page Blobs | High performace for page blobs. Index-based, sparse data structures (OS's), DBs |
 
-**SMB** Server Message Block
- **NFS** Network File System (linux file system)
+**SMB** Server Message Block  
+**NFS** Network File System (linux file system)  
+
+| Blob Type | Description |
+| --- | --- |
+| Block Blobs | Text or binaries, default type |
+| Append Blobs | similiar to blobs but optimized for append operations |
+| Page Blobs | up to 8TB in size. More efficient for frequent r/w. VMs use this for OS disks etc | 
 
 | Redundancy | Notes | SLA (# of 9's) | 
 | --- | --- |
@@ -32,13 +87,11 @@ can create a DNS for blob access
 Use **G** for regional protection 
 Use **Z** for data center protection
 
-## Security 
-public: can restrict to VNets (same) or IPs  
-private endpoints: stop traffic going over internet 
+### Blob Replication
+Requires blob versioning is enabled on both source and destination accounts.   
+Tiers can be different, 
 
-
-
-## Blob Client library
+### Blob Client library
 
 | Class | Description |
 | --- | --- |
@@ -53,7 +106,7 @@ namespaces
 - Azure.Storage.Blobs.Specialized: specific type operations eg Block Blobs 
 - Azure.Storage.Blobs.Models: everything else
 
-## Connecting using SDK
+### Connecting using SDK
 **BlobServiceClient**
 ```
 using Azure.Identity
