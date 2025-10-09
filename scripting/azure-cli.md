@@ -44,3 +44,9 @@ az vm show --name "VM1" --resource-group "RG1" --query "networkProile.networkInt
 az role assignment create --assignee $userPrincipal --role "Storage Blob Data Owner" --scope $resourceId
 ```
 
+## Query results
+Multiple values
+```
+az storage account list --query "[].{Name:name,IsHnsEnabled:isHnsEnabled}" -o table
+```
+
