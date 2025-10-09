@@ -7,7 +7,7 @@
 | Usage | understand how users interact with application | 
 | Smart Detection | Automatic failure and anomaly detection |
 | Application Map | Visual health and view | 
-| 
+ 
 
 ## Availablity Testing  
 **Standard Test**:   
