@@ -48,4 +48,11 @@ Security:
 - use app or
 - use app service. configure provider to be the app registration 
 Backups worth implementing....easy restore
-- partial available
+- partial available  
+
+## Run scripts
+Its possible to run scripts from portal 
+```
+# last boot up time
+Get-CimInstance -ClassName Win32_OperatingSystem | Select-Object -Property LastBootUpTime
+```

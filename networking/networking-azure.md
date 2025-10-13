@@ -9,7 +9,9 @@
 | Express Route | Connects your local network with VNet |
 | VNet Paring | Connects two VNets | 
 | Private Link | Connects resources to the VNET eg Storage |
-| Network Security Groups | secure resources within subnets |
+| Network Security Groups | secure resources within subnets | 
+| Network Watcher | monitor/repair Iaas resoures |
+| Recovery Vault | 
 
 ## VNET
 Private network in Azure for VMs    
@@ -158,4 +160,14 @@ Create and then add custom routes
 Need to enable IP forwarding on VM and in OS  
 
 ## Firewall 
-IP Groups -> group and manage IP addresses. 
+IP Groups -> group and manage IP addresses.   
+
+## Azure Network Watcher 
+Auto enabled in a region when you create/update a VNET  
+No charge  
+**Monitoring**   
+- Topology
+- Connection Monitor: packet loss, latency, connectivity testing. Need to enable this. 
+**Network Diagnostic Tools** 
+- IP flow, NSG diag, Next hop, Effective security rules, Packet Capture, VPN troubleshoot 
+There is an installable agent

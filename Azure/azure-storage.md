@@ -13,7 +13,7 @@ organise in hierachy of directories & sub directories
 increases storage cost but can lower compute costs  
 
 **data lake** 
-data stored in natural format. requires HNS. Optimised for analytics workloads.  
+data stored in natural format. requires HNS & blob storage. Optimised for analytics workloads.  
 allows you treat data as if it's stored in an HDFS.  
 allows you to access via ABFS (Azure Blob File System - part of Apache Hadopp).  
 Access data in one place (don't move) using Azure DataBricks, Azure HDInsights, Synapse Analytics  
