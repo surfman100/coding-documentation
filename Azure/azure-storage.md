@@ -40,6 +40,14 @@ sftp <myaccount>.<mycontainer>.<myusername>@<myaccount>.blob.core.windows.net
 - Outbound Data Transfer Costs 
 - Tier change Costs
 
+### Other features 
+Storage analystics to see who was using what when  
+Storage insights 
+- metrics and logs 
+- actionable insights/alerts 
+- unified view  
+
+
 ### Security 
 container access:
 - private (no anonymous access)
@@ -49,7 +57,23 @@ container access:
 public: can restrict to VNets (same) or IPs  
 private endpoints: stop traffic going over internet 
 
-use SAS over Shared Account Keys 
+use of AAD recommended, then SAS over Shared Account Keys 
+Set a Stored Accces Policy using RestAPI
+
+**URI and SAS Parameters**
+| | |
+| --- | --- |
+| sv | storage version. later have more capabilities | 
+| ss | storage services. e.g. bf = blob and files | 
+| st | start time |
+| se | expiry time | 
+| sr | resource. e.g. b = blobs | 
+| sp | permissions. e.g. rw | 
+| sip | ip range | 
+| spr | protocal e.g. https | 
+| sig | signature. authentication code | 
+
+
 
 
 ### Tiers 
