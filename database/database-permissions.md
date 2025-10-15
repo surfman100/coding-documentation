@@ -2,6 +2,9 @@
 
 ## Contained DB User
 Entra user at the database level
+```
+create user [username] with password = '<password>'
+```
 
 ## Users and Logins
 ```
