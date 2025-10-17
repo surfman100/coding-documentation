@@ -8,4 +8,13 @@ Create an expression
 When a user or device properties changed, this is re-evaluated. 
 
 ## Assigning Licenses 
-Need to set a users *Usage Location* (country) before adding license. As some licenses are not available in all regions. 
+Need to set a users *Usage Location* (country) before adding license. As some licenses are not available in all regions.  
+Licenses have attributes 
+
+## Custom Security Attributes 
+Key value pair that you can assign to EntraID Objects 
+
+
+**System for Cross-Domain Identity Management (SCIM)** is an open standard protocol for automating the exchange of user identity information  
+**HCM** Human Capital Management process   
+**Entra Provisioning Service** Uses SCIM to auto provision users and groups   
