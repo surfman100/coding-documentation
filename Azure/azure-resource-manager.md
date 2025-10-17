@@ -1,5 +1,6 @@
 # Azure Resource Manager
-To query Azure resources, like DataFactory pipeline runs, use the Azure Resource Manager
+Azure Resource Manager is the deployment and management service for Azure.  
+To query Azure resources, like DataFactory pipeline runs, use the Azure Resource Manager  
 
 ## Code
 Reference the following libraries
