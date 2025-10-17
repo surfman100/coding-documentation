@@ -1,13 +1,4 @@
-# Azure Storage
-
-| Storage Type | Notes |
-| --- | --- |
-| Blob Storage | Useful for images/files directly to browser, video/audio streaming, now access blobs using NFS |
-| File Storage | Network file share, SMB & NFS |
-| Queue Storage | up to 64kb messages |
-| Table Storage | NoSQL, Key/Attribute. Cosmos is newer |
-
-## Blob Storage 
+## Azure Blob Storage 
 **Hierachial Namespace HNS**  
 organise in hierachy of directories & sub directories  
 increases storage cost but can lower compute costs  

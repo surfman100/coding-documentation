@@ -6,6 +6,12 @@ Requires P1 license
 
 Entra Connect - synch users,groups,passwords between on prem AD and Entra ID. 
 
+## Tenant Wide Settings 
+These include:
+- Tenant Properties
+- User Settings 
+- External Collaboration Settings 
+
 ## Roles
 
 | | Entra roles | Azure roles | 
