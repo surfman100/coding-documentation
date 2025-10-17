@@ -13,6 +13,11 @@ General concepts, hints and tips.
 ## General
 Follow [reource naming conventions](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-abbreviations)
 
+Look at [Cloud Adoption Framework](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/overview). 
+Azure policy is a major component of this. 
+
+
+
 ## Applications
 
 <a name="appregistrations"></a>
