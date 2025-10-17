@@ -13,3 +13,12 @@ Need to set a users *Usage Location* (country) before adding license. As some li
 ## Default Permissions 
 Differs between Members and guests  
 **User Settings** for changing defaults etc 
+
+
+## Custom Security Attributes 
+Key value pair that you can assign to EntraID Objects 
+
+
+**System for Cross-Domain Identity Management (SCIM)** is an open standard protocol for automating the exchange of user identity information  
+**HCM** Human Capital Management process   
+**Entra Provisioning Service** Uses SCIM to auto provision users and groups   
