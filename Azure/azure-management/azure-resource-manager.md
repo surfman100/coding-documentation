@@ -6,9 +6,13 @@ Azure Resource Manager is the deployment and management service for Azure.
 - monitoring 
 - tagging   
 To query Azure resources, like DataFactory pipeline runs, use the Azure Resource Manager  
-All Rest operations go through RM 
 
+## The Central Control Plane Node!!
+CLI, Powershell, Portal, Rest - All operations go through RM!!  
+It Authenticates and authorizes before forwarding to appropriate resource provider.   
 ![Resource Manager](/Azure/azure-management/azure-policy-and-resource-manager.png)
+
+Note, data plane operations do not go through RM. 
 
 
 ## Code
