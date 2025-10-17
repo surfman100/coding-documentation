@@ -1,6 +1,15 @@
 # Azure Resource Manager
-Azure Resource Manager is the deployment and management service for Azure.  
+Azure Resource Manager is the deployment and management service for Azure.
+- template deployments 
+- RBAC control 
+- auditing 
+- monitoring 
+- tagging   
 To query Azure resources, like DataFactory pipeline runs, use the Azure Resource Manager  
+All Rest operations go through RM 
+
+![Resource Manager](/Azure/azure-management/azure-policy-and-resource-manager.png)
+
 
 ## Code
 Reference the following libraries
